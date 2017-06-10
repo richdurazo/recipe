@@ -1,0 +1,15 @@
+ .background{
+   background-image: url("http://s3.amazonaws.com/digitaltrends-uploads-prod/2016/05/food-composition-tips.jpg");
+    height: 800px;
+     background-attachment: fixed;
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
+ }
+ h1 {
+   text-align: center;
+   margin-top: 0px;
+   padding-top: 200px;
+   font-size: 100px;
+   color: yellow;
+ }

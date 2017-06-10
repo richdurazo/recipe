@@ -1,25 +1,26 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a href="#" class="navbar-brand">Recipe Book</a>
+      <a routerLink="/" class="navbar-brand">Recipe Book</a>
     </div>
 
-    <div class="navbar-default">
+    <div class="navbar-inverse">
       <ul class="nav navbar-nav">
-        <li><a href="#" (click)="onSelect('recipe')">Recipes</a></li>
-        <li><a href="#" (click)="onSelect('shoping-list')">Shopping List</a></li>
+        <li routerLinkActive="active"><a routerLink="/home">Home</a></li>
+        <li routerLinkActive="active"><a routerLink="/recipes">Recipes</a></li>
+        <li routerLinkActive="active"><a routerLink="/shopping-list">Shopping List <span class="glyphicon glyphicon-shopping-cart"></span></a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li 
           class="dropdown"
           appDropdown>
-          <a href="#" class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
+          <a style="cursor: pointer;" class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li>
-              <a href="#">Save Data</a>
+              <a style="cursor: pointer;">Save Data</a>
             </li>
             <li>
-              <a href="#">Fetch Data</a>
+              <a style="cursor: pointer;">Fetch Data</a>
             </li>
           </ul>
         </li>
