@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 import { RecipeService } from '../recipe.service';
 import { Recipe } from '../recipe.model';
@@ -18,7 +18,8 @@ export class RecipeEditComponent implements OnInit {
   recipeForm: FormGroup;
 
   constructor(private route: ActivatedRoute,
-              private recipeService: RecipeService) { }
+              private recipeService: RecipeService,
+              private router: Router) { }
 
   ngOnInit() {
     this.route.params
@@ -44,6 +45,8 @@ export class RecipeEditComponent implements OnInit {
     } else {
       this.recipeService.addRecipe(this.recipeForm.value);
     }
+    // we we are done with the form we want to navigate away
+    this.onCancel();
   }
 
 onAddIngredient() {
@@ -58,6 +61,12 @@ onAddIngredient() {
     ])
    })
  );
+}
+onCancel() {
+  // because I just want to navigate away when the user clicks cancel above I will have to import the Router from '@angular/router' 
+  // and inject it in the component via the constructor
+  // So I want to navigate up one (i.e. if I am editing and click cancel it will take me back to details page)
+  this.router.navigate(['../'], {relativeTo: this.route});
 }
   // it is important to know if we are in edit mode for our form
   // we will create a method responsible for initializng our form
