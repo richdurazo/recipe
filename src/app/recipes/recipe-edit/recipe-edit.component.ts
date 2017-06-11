@@ -62,12 +62,17 @@ onAddIngredient() {
    })
  );
 }
+onDeleteIngredient(index: number) {
+   (<FormArray>this.recipeForm.get('ingredients')).removeAt(index);
+
+}
 onCancel() {
   // because I just want to navigate away when the user clicks cancel above I will have to import the Router from '@angular/router' 
   // and inject it in the component via the constructor
   // So I want to navigate up one (i.e. if I am editing and click cancel it will take me back to details page)
   this.router.navigate(['../'], {relativeTo: this.route});
 }
+
   // it is important to know if we are in edit mode for our form
   // we will create a method responsible for initializng our form
 
