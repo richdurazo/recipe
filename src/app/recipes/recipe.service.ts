@@ -39,6 +39,15 @@ export class RecipeService {
   ];
 
   constructor(private slService: ShoppingListService) {}
+
+  // because we are now replacing the recipes above with the recipes from our storage 
+  // we will have a setRecipes method 
+  // we will use setRecipes in our Data-storate.Service
+
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes;
+    this.recipesChanged.next(this.recipes.slice());
+  }
   getRecipes() {
       // return a new away that is a copy
       return this.recipes.slice();
